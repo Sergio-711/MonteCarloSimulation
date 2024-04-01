@@ -95,6 +95,9 @@ class Round:
             for player in team.players:
                 player.restartConsecutiveShot()
             luckiestOne.increaseConsecutiveShot()
+            auxScore = self.getScore(luckiestOne.gender)
+            if luckiestOne.simulateShot(auxScore, False):
+                    team.increaseScore(auxScore)
         else:
             auxScore = self.getScore(luckiestOne.gender)
             if luckiestOne.increaseConsecutiveShot():
